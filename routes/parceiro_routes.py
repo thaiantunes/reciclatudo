@@ -23,3 +23,4 @@ def create_parceiro():
     db_session.commit()
 
     return jsonify({"message": "Parceiro criado com sucesso!"}), 201
+

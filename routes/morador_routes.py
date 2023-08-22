@@ -22,3 +22,4 @@ def create_morador():
     db_session.commit()
 
     return jsonify({"message": "Morador criado com sucesso!"}), 201
+

@@ -1,1 +1,2 @@
 DATABASE_URL = "mysql+mysqlconnector://USERNAME:PASSWORD@HOST/DATABASE"
+
