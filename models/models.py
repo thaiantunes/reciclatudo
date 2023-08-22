@@ -7,7 +7,7 @@ Base = declarative_base()
 class Morador(Base):
     __tablename__ = "moradores"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id_morador = Column(Integer, primary_key=True, index=True)
     nome = Column(String, index=True)
     cep = Column(String, index=True)
     logradouro = Column(String)
@@ -15,11 +15,12 @@ class Morador(Base):
     ddd = Column(Integer)
     telefone = Column(String)
     email = Column(String, unique=True, index=True)
+    hashed_password = Column(String)
 
 class Parceiro(Base):
     __tablename__ = "parceiros"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id_parceiro = Column(Integer, primary_key=True, index=True)
     nome_instituicao = Column(String, index=True)
     responsavel = Column(String, index=True)
     cep = Column(String, index=True)
@@ -28,11 +29,14 @@ class Parceiro(Base):
     ddd = Column(Integer)
     telefone = Column(String)
     email = Column(String, unique=True, index=True)
+    hashed_password = Column(String)
 
 class Coleta(Base):
     __tablename__ = "coletas"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id_coleta = Column(Integer, primary_key=True, index=True)
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
-    descricao = Column(String, nullable=True)
+    data = Column(String, nullable=False)
+    turno = Column(String, nullable=False)
+    quantidade = Column(Integer, nullable=False)
