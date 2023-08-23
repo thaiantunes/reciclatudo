@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from models import Coleta
-# from database import db
+from models.database import db_session
 
 coletas_blueprint = Blueprint('coletas_routes', __name__)
 
@@ -22,7 +22,7 @@ def add_coleta():
         quantidade = data['quantidade']
     )
     
-    db.session.add(nova_coleta)
-    db.session.commit()
+    db_session.add(nova_coleta)
+    db_session.commit()
     
     return jsonify({"message": "Coleta adicionada com sucesso!"}), 201
