@@ -6,7 +6,10 @@ from routes.coletas_routes import coletas_blueprint
 from routes.user_routes import user_blueprint
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='routes/templates')
+
+# Set the secret key
+app.config['SECRET_KEY'] = 'your_secret_key_here'
 
 app.register_blueprint(parceiro_blueprint)
 app.register_blueprint(morador_blueprint)

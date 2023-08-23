@@ -2,7 +2,12 @@ from flask import Blueprint
 from flask import render_template, request, redirect, url_for, flash
 import os
 
+
 login_blueprint = Blueprint('login_blueprint', __name__)
+
+@login_blueprint.route('/')
+def index():
+    return "Welcome to the root page"
 
 @login_blueprint.route('/home')
 def home():
@@ -16,12 +21,10 @@ def login():
 
         # Here you should check the username and password against your user database
         # For simplicity, let's assume username: "admin" and password: "password"
-        if username == 'admin' and password == 'password':
+        if username == 'admin' and password == 'admin':
             flash('Login successful', 'success')
-            return redirect(url_for('home'))
+            return redirect(url_for('login_blueprint.home'))
         else:
             flash('Login failed. Please check your credentials.', 'error')
     
-    template_path = os.path.join(os.path.dirname(__file__), '..', 'templates', 'login.html')
-
-    return render_template(template_path)
+    return render_template('login.html')
