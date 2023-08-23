@@ -1,6 +1,5 @@
 from flask import Blueprint
 from flask import render_template, request, redirect, url_for, flash
-import os
 
 
 login_blueprint = Blueprint('login_blueprint', __name__)
