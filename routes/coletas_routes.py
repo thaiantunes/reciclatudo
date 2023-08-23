@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from models import Coleta
-from database import db
+# from database import db
 
 coletas_blueprint = Blueprint('coletas_routes', __name__)
 

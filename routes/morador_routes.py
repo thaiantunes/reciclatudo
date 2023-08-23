@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from models import Morador
-from database import db_session
+from models.database import db_session
 
 morador_blueprint = Blueprint('morador_blueprint', __name__)
 

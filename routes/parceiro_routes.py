@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
-from models import Parceiro
-from database import db_session
+from models.data_model import Parceiro
+from models.database import db_session
+
 
 parceiro_blueprint = Blueprint('parceiro_blueprint', __name__)
 
