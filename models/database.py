@@ -3,12 +3,16 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
 
-SQLALCHEMY_DATABASE_URL = "mysql+mysqlconnector://USERNAME:PASSWORD@HOST/DATABASE"
+from .data_model import Base
+
+# SQLALCHEMY_DATABASE_URL = "mysql+mysqlconnector://USERNAME:PASSWORD@HOST/DATABASE"
+SQLALCHEMY_DATABASE_URL = "mariadb+pymysql://reciclatudo:reciclatudo@localhost/reciclatudo"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-Base = declarative_base()
+metadata = Base.metadata
+metadata.create_all(engine)
 
 @contextmanager
 def db_session():
