@@ -17,9 +17,9 @@ def create_morador():
         telefone=data['telefone'],
         email=data['email']
     )
-
-    db_session.add(new_morador)
-    db_session.commit()
+    with db_session() as session:
+        session.add(new_morador)
+        session.commit()
 
     return jsonify({"message": "Morador criado com sucesso!"}), 201
 

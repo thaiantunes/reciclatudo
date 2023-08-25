@@ -20,8 +20,9 @@ def create_parceiro():
         email=data['email']
     )
 
-    db_session.add(new_parceiro)
-    db_session.commit()
+    with db_session() as session:
+        session.add(new_parceiro)
+        session.commit()
 
     return jsonify({"message": "Parceiro criado com sucesso!"}), 201
 

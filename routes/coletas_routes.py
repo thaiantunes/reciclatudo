@@ -22,7 +22,8 @@ def add_coleta():
         quantidade = data['quantidade']
     )
     
-    db_session.add(nova_coleta)
-    db_session.commit()
+    with db_session() as session:
+        session.add(nova_coleta)
+        session.commit()
     
     return jsonify({"message": "Coleta adicionada com sucesso!"}), 201
