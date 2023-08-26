@@ -37,6 +37,8 @@ class Coleta(Base):
     id_coleta = Column(Integer, primary_key=True, index=True)
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
-    data = Column(String(8), nullable=False)
+    data = Column(String(11), nullable=False)
     turno = Column(String(10), nullable=False)
     quantidade = Column(Integer, nullable=False)
+    tipo_lixo = Column(String(50), nullable=False)
+
